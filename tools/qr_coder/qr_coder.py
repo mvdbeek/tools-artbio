@@ -20,6 +20,10 @@ def qr_coder(qrData, qrVersion, qrErrorCorrection, qrBoxSize, qrBorder, qrFit, q
          sys.exit(-1)
    if qrVersion is "":
       qrVersion = 1
+   elif qrVersion < 0:
+      qrVersion = ""
+   elif qrVersion > 40:
+      qrVersion = 40
 
    if qrErrorCorrection is "":
       qrErrorCorrection = qrcode.constants.ERROR_CORRECT_L
@@ -40,15 +44,26 @@ def qr_coder(qrData, qrVersion, qrErrorCorrection, qrBoxSize, qrBorder, qrFit, q
       qrBorder = 4
    if qrFit is "":
       qrFit = False
+   elif qrVersion is not "":
+      qrVersion = "" 
+      print "--qrFit takes precedence over -qrVersion"
    if qrOutput is "":
       qrOutput = Constants.IMAGE_DEFAULT + Constants.IMAGE_TYPE
       
-   qr = qrcode.QRCode(
-       version=qrVersion,
-       error_correction=qrErrorCorrection,
-       box_size=qrBoxSize,
-       border=qrBorder
-   )
+   if qrVersion is "":
+      qr = qrcode.QRCode(
+         error_correction=qrErrorCorrection,
+         box_size=qrBoxSize,
+         border=qrBorder
+         )
+   else:
+      qr = qrcode.QRCode(
+         version=qrVersion,
+         error_correction=qrErrorCorrection,
+         box_size=qrBoxSize,
+         border=qrBorder
+         )
+
    qr.add_data(qrData)
    if qrFit:
       qr.make(fit=qrFit)
