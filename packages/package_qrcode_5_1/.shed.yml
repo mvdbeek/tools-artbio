@@ -3,7 +3,6 @@ categories:
 description: Contains a tool dependency definition that downloads and compiles 5.1 version of qrcode python library.
 long_description: |
   qrcode is a python library for the QR Code image generator.
-  http://www.bcgsc.ca/platform/bioinfo/software/abyss
 name: package_qrcode_5_1
 owner: fabiorjvieira
 homepage_url: https://github.com/ARTbio/

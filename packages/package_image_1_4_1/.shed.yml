@@ -3,7 +3,7 @@ categories:
 description: Contains a tool dependency definition that downloads and compiles 1.4.1 version of Image python library.
 long_description: |
   Image is a python library for image manipulation.
-  https://github.com/francescortiz/images
+  https://github.com/francescortiz/image
 name: package_image_1_4_1
 owner: fabiorjvieira
 homepage_url: https://github.com/ARTbio/
