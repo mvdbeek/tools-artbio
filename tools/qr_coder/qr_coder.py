@@ -1,9 +1,11 @@
 #!/usr/bin/python
 
-import qrcode, argparse, sys
+import qrcode
+import argparse
+import sys
 
 class Constants:
-   PARAMETER_DELIMITATOR = "[]"
+   PARAMETER_DELIMITER = "[]"
    VERSION = "v1.0"
    IMAGE_TYPE = '.png'
    IMAGE_DEFAULT = 'demo'
@@ -18,12 +20,6 @@ def qr_coder(qrData, qrVersion, qrErrorCorrection, qrBoxSize, qrBorder, qrFit, q
    if qrData is "":
          print >> sys.stderr, Constants.ERROR_QR_DATA
          sys.exit(-1)
-   if qrVersion is "":
-      qrVersion = 1
-   elif qrVersion < 0:
-      qrVersion = ""
-   elif qrVersion > 40:
-      qrVersion = 40
 
    if qrErrorCorrection is "":
       qrErrorCorrection = qrcode.constants.ERROR_CORRECT_L
@@ -42,11 +38,20 @@ def qr_coder(qrData, qrVersion, qrErrorCorrection, qrBoxSize, qrBorder, qrFit, q
       qrBoxSize = 10
    if qrBorder is "":
       qrBorder = 4
+
    if qrFit is "":
       qrFit = False
+      qrVersion = int(qrVersion)
+      if qrVersion is "":
+         qrVersion = 1
+      elif qrVersion < 1:
+         qrVersion = 1
+      elif qrVersion > 40:
+         qrVersion = 40
    elif qrVersion is not "":
       qrVersion = "" 
       print "--qrFit takes precedence over -qrVersion"
+
    if qrOutput is "":
       qrOutput = Constants.IMAGE_DEFAULT + Constants.IMAGE_TYPE
       
@@ -76,7 +81,7 @@ def printParameters(argumentList):
    print Constants.PARAMETERS
    parameters = vars(argumentList)
    for parameter in parameters:
-      print parameter, Constants.PARAMETER_DELIMITATOR[0] + str(parameters[parameter]) + Constants.PARAMETER_DELIMITATOR[1]
+      print parameter, Constants.PARAMETER_DELIMITER[0] + str(parameters[parameter]) + Constants.PARAMETER_DELIMITER[1]
    print ""
    
 def main():
