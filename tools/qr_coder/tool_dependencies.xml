@@ -2,8 +2,10 @@
 <tool_dependency>
    <package name="qrcode" version="5.1">
       <repository name="package_qrcode_5_1" owner="fabiorjvieira" />
-    </package>
-    <package name="image" version="1.4.1">
+      <action type="setup_virtualenv">qrcode==5.1</action>
+   </package>
+   <package name="image" version="1.4.1">
       <repository name="package_image_1_4_1" owner="fabiorjvieira" />
-    </package>
+      <action type="setup_virtualenv">image==1.4.1</action>
+   </package>
 </tool_dependency>
