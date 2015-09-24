@@ -2,7 +2,7 @@
    <description>Generate qr code images</description>
    <requirements>
       <requirement type="package" version="5.1">qrcode</requirement>
-      <requirement type="package" version="1.4.1">Image</requirement>
+      <requirement type="package" version="1.4.1">image</requirement>
    </requirements>
    <stdio>
       <exit_code range="1:" />

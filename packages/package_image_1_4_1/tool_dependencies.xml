@@ -2,7 +2,7 @@
     <package name="python" version="2.7">
         <repository name="package_python_2_7" owner="iuc" prior_installation_required="True"/>
     </package>
-    <package name="Image" version="1.4.1">
+    <package name="image" version="1.4.1">
         <install version="1.0">
             <actions>
                 <action type="setup_python_environment">

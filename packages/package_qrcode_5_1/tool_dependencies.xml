@@ -3,7 +3,7 @@
     <package name="python" version="2.7">
         <repository name="package_python_2_7" owner="iuc" prior_installation_required="True"/>
     </package>
-    <package name="Image" version="1.4.1">
+    <package name="image" version="1.4.1">
         <repository name="package_image_1_4_1" owner="fabiorjvieira" prior_installation_required="True"/>
     </package>
     <package name="qrcode" version="5.1">
@@ -14,7 +14,7 @@
                         <package name="python" version="2.7"/>
                     </repository>
                     <repository name="package_image_1_4_1" owner="fabiorjvieira">
-                        <package name="Image" version="1.4.1"/>
+                        <package name="image" version="1.4.1"/>
                     </repository>
                     <package>https://pypi.python.org/packages/source/q/qrcode/qrcode-5.1.tar.gz</package>
                 </action>
