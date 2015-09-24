@@ -1,11 +1,21 @@
+<?xml version="1.0"?>
 <tool_dependency>
+    <package name="python" version="2.7">
+        <repository name="package_python_2_7" owner="iuc" prior_installation_required="True"/>
+    </package>
+    <package name="image" version="1.4.1">
+        <install version="1.0">
             <actions>
                 <action type="setup_python_environment">
-                    <repository name="package_image_1_4_1" owner="francescortiz">
-                        <package name="image" version="1.4.1" />
+                    <repository name="package_python_2_7" owner="iuc">
+                        <package name="python" version="2.7"/>
                     </repository>
-                    <package>"https://pypi.python.org/packages/source/i/image/image-1.4.1.tar.gz"</package>
+                    <package>https://pypi.python.org/packages/source/i/image/image-1.4.1.tar.gz</package>
                 </action>
             </actions>
-        <readme>Compiling Image requires a C and Fortran compiler (typically gcc and gfortran). The PYTHONPATH for Image can be accessed through PYTHONPATH_IMAGE.</readme>
+        </install>
+        <readme><![CDATA[ Compiling Image requires a C and Fortran compiler (typically gcc and gfortran).
+        ]]>
+        </readme>
+    </package>
 </tool_dependency>
