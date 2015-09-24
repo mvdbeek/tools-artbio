@@ -27,10 +27,10 @@
       #end if
    </command>
    <inputs>
-      <param name="qrData"            type="text"    label="Data to be coded as an qr image"                                           optional="false" />
-      <param name="qrVersion"         type="integer" label="An integer from 0 (automatic) to 40 that controls the size of the QR Code" optional="true"  />
-      <param name="qrBorder"          type="integer" label="Controls how many boxes thick the border should be"                        optional="true"  />
-      <param name="qrBoxSize"         type="integer" label="Controls how many pixels each 'box' of the QR code is"                     optional="true"  />
+      <param name="qrData"            type="text"    label="Data to be coded as an qr image"                                           optional="false" value="https://mississippi.snv.jussieu.fr/artbio/"/>
+      <param name="qrVersion"         type="integer" label="An integer from 0 (automatic) to 40 that controls the size of the QR Code" optional="true"  value="0" max="40" min="0" />
+      <param name="qrBorder"          type="integer" label="Controls how many boxes thick the border should be"                        optional="true"  min="0" />
+      <param name="qrBoxSize"         type="integer" label="Controls how many pixels each 'box' of the QR code is"                     optional="true"  min="0"/>
       <param name="qrErrorCorrection" type="select"  label="Controls the error correction used for the QR Code"                        optional="true"  >
          <option value="Low">Low</option>
          <option value="Medium">Medium</option>
