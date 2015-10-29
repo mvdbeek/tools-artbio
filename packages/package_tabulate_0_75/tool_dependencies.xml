@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <package name="tabulate" version="0.75">
+        <install version="1.0">
+        <actions>
+            <action type="setup_virtualenv">tabulate==0.75</action>
+        </actions>
+        </install>
+        <readme>
+            This tool dependency definition downloads and installs tabulate.
+        </readme>
+    </package>
+</tool_dependency>
