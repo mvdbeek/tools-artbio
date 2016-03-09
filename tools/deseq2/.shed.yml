@@ -1,13 +1,13 @@
 # .shed.yml supporting automatic pushes.
 owner: mvdbeek
 name: deseq2
-description: DESeq2 Profiling of readcount lists 
+description: DESeq2 Profiling of readcount lists. Do not use, avilable only for reproducibility.
 long_description: |
   DESeq2 Profiling of readcount lists. DESeq2 differential calling (order by padj, ascending). Still in development and testing.
-  It is preferable to use the Differential_Count tool.
+  It is preferable to use the Differential_Count tool or iuc's deseq2 tools.
 categories:
   - RNA
 homepage_url: http://artbio.fr
 remote_repository_url: https://github.com/ARTbio/tools-artbio/tree/master/tools/deseq2
 toolshed:
-  - https://lbcd41.snv.jussieu.fr/toolshed/
+  - testtoolshed

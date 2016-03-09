@@ -1,12 +1,12 @@
 # .shed.yml supporting automatic pushes.
 owner: mvdbeek
 name: simple_deseq
-description: DESeq 1 profiling for 2 samples without replicates.
+description: DESeq 1 profiling for 2 samples without replicates. deprecated, do not use. Only available for reproducibility reasons
 long_description: |
-  DESeq 1 profiling for 2 samples without replicates.
+  DESeq 1 profiling for 2 samples without replicates. Do not use.
 categories:
   - RNA
 homepage_url: http://bioconductor.org/packages/release/bioc/html/DESeq.html
 remote_repository_url: https://github.com/ARTbio/tools-artbio/tree/master/tools/deseq1_no_replicate
 toolshed:
-  - https://lbcd41.snv.jussieu.fr/toolshed/
+  - testtoolshed

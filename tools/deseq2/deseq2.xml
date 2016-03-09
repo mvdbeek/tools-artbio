@@ -1,4 +1,4 @@
-<tool id="DESeq2" name="DESeq2 Profiling" version="1.0.2">
+<tool id="DESeq2" name="DESeq2 Profiling" version="1.0.2" hidden="true">
 	<description>of readcount lists</description>
         <requirements>
           <requirement type="package" version="3.1.2">R</requirement>
