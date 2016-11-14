@@ -5,9 +5,9 @@
 # Usage yac.py  $input $output $adapter_to_clip $min $max $Nmode
 # Christophe Antoniewski <drosofff@gmail.com>
 
-import sys
-import string
 import argparse
+import gzip
+import mimetypes
 from itertools import islice
 
 
@@ -18,7 +18,7 @@ def Parser():
     the_parser.add_argument(
         '--output', action="store", type=str, help="output, clipped fasta file")
     the_parser.add_argument(
-        '--output_format', action="store", type=str, help="output format, fasta or fastq")
+        '--output_format', action="store", choices=['fasta', 'fastq', 'fastq.gz'], type=str, help="output format, fasta, fastq or fastq.gz")
     the_parser.add_argument(
         '--adapter_to_clip', action="store", type=str, help="adapter sequence to clip")
     the_parser.add_argument(
@@ -73,12 +73,31 @@ class Clip:
             block = "@HWI-{0}\n{1}\n+\n{2}\n".format(id, read, qscore)
         output.write(block)
 
+    def is_gzip(self):
+        gzip_magic_byte = "\x1f\x8b\x08"
+        with open(self.inputfile) as input:
+            return gzip_magic_byte == input.read(len(gzip_magic_byte))
+
+    def get_input_fh(self):
+        if self.is_gzip():
+            return gzip.GzipFile(self.inputfile, "r")
+        else:
+            return open(self.inputfile, "r")
+
+    def get_output_fh(self):
+        if self.output_format == "fastq.gz":
+            return gzip.GzipFile(self.outputfile, 'a')
+        else:
+            return open(self.outputfile, 'a')
+
+
     def handle_io(self):
         '''Open input file, pass read sequence and read qscore to clipping function.
         Pass clipped read and qscore to output function.'''
         id = 0
-        output = open(self.outputfile, "a")
-        with open(self.inputfile, "r") as input:
+        try:
+            output = self.get_output_fh()
+            input = self.get_input_fh()
             block_gen = islice(input, 1, None, 2)
             for i, line in enumerate(block_gen):
                 if i % 2:
@@ -93,6 +112,8 @@ class Clip:
                         continue
                     id += 1
                     self.write_output(id, trimmed_read, trimmed_qscore, output)
+        finally:
+            input.close()
             output.close()
 
 
